@@ -1,4 +1,4 @@
-import 'package:flutter_sliver_test/models/user_model.dart';
+import 'package:flutter_sliver_test/api/models/user_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'post_model.g.dart';
 
