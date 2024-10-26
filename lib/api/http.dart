@@ -24,7 +24,6 @@ class Http {
       }
       return null;
     } catch (e) {
-      print(e.toString());
       throw Exception(e);
     }
   }

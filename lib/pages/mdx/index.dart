@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sliver_test/api/http.dart';
+import 'package:flutter_sliver_test/api/models/post_model.dart';
+import 'package:flutter_sliver_test/components/post_card/index.dart';
 // import 'package:flutter_sliver_test/pages/mdx/md_page.dart';
 
 /// markdown widget renderer
@@ -16,29 +18,34 @@ class _CustomMarkdownWidgetState extends State<CustomMarkdownWidget> {
     return Scaffold(
         // body: const SafeArea(child: MarkdownPage("assets/md.txt")),
         body: SafeArea(
-          child: FutureBuilder(
-            future: Http.get({
-              "reviewStatus": 1,
-              "current": 1,
-              "needNotInterests": true,
-              "hiddenContent": true,
-              "sorterList": [
-                {"field": "createTime", "asc": false}
-              ],
-              "showPost": 0,
-              "needCursor": true,
-              "cursorList": [
-                {"field": "createTime", "asc": false},
-                {"field": "id", "asc": false}
-              ]
-            }),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
-                // return const MarkdownPage("assets/md.txt");
-                return Text(snapshot.data.toString());
-              }
-              return const Center(child: CircularProgressIndicator());
-            },
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: FutureBuilder(
+              future: Http.get({
+                "reviewStatus": 1,
+                "current": 1,
+                "needNotInterests": true,
+                "hiddenContent": true,
+                "sorterList": [
+                  {"field": "createTime", "asc": false}
+                ],
+                "showPost": 0,
+                "needCursor": true,
+                "cursorList": [
+                  {"field": "createTime", "asc": false},
+                  {"field": "id", "asc": false}
+                ]
+              }),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return ListView.builder(
+                    itemBuilder: (context, index) => PostCard(data: snapshot.data![index]),
+                    itemCount: snapshot.data?.length,
+                  );
+                }
+                return const Center(child: CircularProgressIndicator());
+              },
+            ),
           ),
         ),
         bottomNavigationBar: _bottomNavigationBar());
