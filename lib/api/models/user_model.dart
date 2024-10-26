@@ -1,78 +1,120 @@
+// To parse this JSON data, do
+//
+//     final userModel = userModelFromJson(jsonString?);
+
 import 'package:json_annotation/json_annotation.dart';
+import 'dart:convert';
+
 part 'user_model.g.dart';
+
+UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
+
+String? userModelToJson(UserModel data) => json.encode(data.toJson());
 
 @JsonSerializable()
 class UserModel {
-  String id;
+  @JsonKey(name: "id")
+  String? id;
+  @JsonKey(name: "planetCode")
   String? planetCode;
-  int planetPostAuth;
-  String userName;
-  String? userAvatar;
-  String? userThumbnailAvatar;
-  String? gender;
-  String? userProfile;
-  String? interests;
-  String? place;
-  String? school;
-  String? direction;
-  int? graduationYear;
-  String? company;
-  String? job;
-  String? github;
-  String? blog;
-  int score;
-  String? jobStatus;
-  int scoreLevel;
-  int followeeNum;
-  int followNum;
-  int followStatus;
-  String? vipExpireTime;
+  @JsonKey(name: "planetPostAuth")
+  int? planetPostAuth;
+  @JsonKey(name: "userName")
+  String? userName;
+  @JsonKey(name: "userAvatar")
+  dynamic userAvatar;
+  @JsonKey(name: "userThumbnailAvatar")
+  dynamic userThumbnailAvatar;
+  @JsonKey(name: "gender")
+  dynamic gender;
+  @JsonKey(name: "userProfile")
+  dynamic userProfile;
+  @JsonKey(name: "int?erests")
+  List<dynamic>? interests;
+  @JsonKey(name: "place")
+  dynamic place;
+  @JsonKey(name: "school")
+  dynamic school;
+  @JsonKey(name: "direction")
+  dynamic direction;
+  @JsonKey(name: "graduationYear")
+  dynamic graduationYear;
+  @JsonKey(name: "company")
+  dynamic company;
+  @JsonKey(name: "job")
+  dynamic job;
+  @JsonKey(name: "github")
+  dynamic github;
+  @JsonKey(name: "blog")
+  dynamic blog;
+  @JsonKey(name: "score")
+  int? score;
+  @JsonKey(name: "jobStatus")
+  dynamic jobStatus;
+  @JsonKey(name: "scoreLevel")
+  int? scoreLevel;
+  @JsonKey(name: "followeeNum")
+  int? followeeNum;
+  @JsonKey(name: "followNum")
+  int? followNum;
+  @JsonKey(name: "followStatus")
+  int? followStatus;
+  @JsonKey(name: "vipExpireTime")
+  int? vipExpireTime;
+  @JsonKey(name: "vipNumber")
   String? vipNumber;
-  String userRole;
-  int? scoreRank;
-  int? postAllThumbNum;
-  int? postAllViewNum;
-  int needGuide;
-  int syncPopupLeftCount;
-  String? paymentInfo;
+  @JsonKey(name: "userRole")
+  String? userRole;
+  @JsonKey(name: "scoreRank")
+  dynamic scoreRank;
+  @JsonKey(name: "postAllThumbNum")
+  dynamic postAllThumbNum;
+  @JsonKey(name: "postAllViewNum")
+  dynamic postAllViewNum;
+  @JsonKey(name: "needGuide")
+  int? needGuide;
+  @JsonKey(name: "syncPopupLeftCount")
+  int? syncPopupLeftCount;
+  @JsonKey(name: "paymentInfo")
+  dynamic paymentInfo;
 
   UserModel({
     required this.id,
-    this.planetCode,
+    required this.planetCode,
     required this.planetPostAuth,
     required this.userName,
-    this.userAvatar,
-    this.userThumbnailAvatar,
-    this.gender,
-    this.userProfile,
-    this.interests,
-    this.place,
-    this.school,
-    this.direction,
-    this.graduationYear,
-    this.company,
-    this.job,
-    this.github,
-    this.blog,
+    required this.userAvatar,
+    required this.userThumbnailAvatar,
+    required this.gender,
+    required this.userProfile,
+    required this.interests,
+    required this.place,
+    required this.school,
+    required this.direction,
+    required this.graduationYear,
+    required this.company,
+    required this.job,
+    required this.github,
+    required this.blog,
     required this.score,
-    this.jobStatus,
+    required this.jobStatus,
     required this.scoreLevel,
     required this.followeeNum,
     required this.followNum,
     required this.followStatus,
-    this.vipExpireTime,
-    this.vipNumber,
+    required this.vipExpireTime,
+    required this.vipNumber,
     required this.userRole,
-    this.scoreRank,
-    this.postAllThumbNum,
-    this.postAllViewNum,
+    required this.scoreRank,
+    required this.postAllThumbNum,
+    required this.postAllViewNum,
     required this.needGuide,
     required this.syncPopupLeftCount,
-    this.paymentInfo,
+    required this.paymentInfo,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$UserModelToJson(this);
+  Map<String?, dynamic> toJson() => _$UserModelToJson(this);
 }
