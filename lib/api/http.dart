@@ -7,7 +7,6 @@ import 'package:flutter_sliver_test/api/service/api_service.dart';
 /// 最基础的请求配置
 class Http {
   static final Dio _dio = Dio();
-
   static final ApiService client = ApiService(_dio);
 
   static void init() {
