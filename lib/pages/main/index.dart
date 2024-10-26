@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
             //   ),
             // ),
             SliverPersistentHeader(
-              delegate: _MyDelegate(title: "标题测试"),
+              delegate: _MyDelegate(title: "标题测试$_counter"),
               pinned: true,
             ),
             SliverList(

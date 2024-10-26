@@ -6,15 +6,10 @@ import 'package:flutter_sliver_test/components/user_title/index.dart';
 import 'package:flutter_sliver_test/constants/colors.dart';
 
 /// 通用的内容型卡片
-class PostCard extends StatefulWidget {
+class PostCard extends StatelessWidget {
   final PostModel data;
   const PostCard({super.key, required this.data});
 
-  @override
-  State<PostCard> createState() => _PostCardState();
-}
-
-class _PostCardState extends State<PostCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,7 +37,7 @@ class _PostCardState extends State<PostCard> {
 
   // 标题
   Widget _buildTitle() {
-    String title = widget.data.title ?? '';
+    String title = data.title ?? '';
     if (title.isEmpty) {
       return Container();
     }
@@ -65,14 +60,14 @@ class _PostCardState extends State<PostCard> {
       child: Row(
         children: [
           UserAvatar(
-            user: widget.data.user,
+            user: data.user,
             size: 10,
           ),
           const SizedBox(
             width: 6,
           ),
           UserTitle(
-            user: widget.data.user,
+            user: data.user,
             color: tertiaryColor,
             fontSize: 13,
           ),
@@ -84,7 +79,7 @@ class _PostCardState extends State<PostCard> {
   // 卡片简介
   Widget _buildDescription() {
     String content =
-        widget.data.plainTextDescription ?? widget.data.content ?? '';
+        data.plainTextDescription ?? data.content ?? '';
     return Text(
       content,
       style: const TextStyle(color: tertiaryColor, fontSize: 14),
@@ -97,9 +92,9 @@ class _PostCardState extends State<PostCard> {
   Widget _buildAction() {
     // 使用一个列表来存储操作项
     final actions = [
-      _buildActionItem(Icons.thumb_up_alt_outlined, widget.data.thumbNum ?? 0),
+      _buildActionItem(Icons.thumb_up_alt_outlined, data.thumbNum ?? 0),
       // _buildActionItem(Icons.star_border, widget.data.favourNum ?? 0),
-      _buildActionItem(Icons.mode_comment_outlined, widget.data.commentNum ?? 0),
+      _buildActionItem(Icons.mode_comment_outlined, data.commentNum ?? 0),
     ];
 
     return Container(
