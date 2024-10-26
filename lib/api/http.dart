@@ -14,7 +14,7 @@ class Http {
     _dio.interceptors.add(ResponseHandler());
   }
 
-  /// 获取文章列表【此处请求逻辑应该抽离到单独的页面中】
+  /// todo: 获取文章列表【此处请求逻辑应该抽离到单独的页面中】
   static Future<List<PostModel>?> get(params) async {
     try {
       final response = await client.getPosts(params);
