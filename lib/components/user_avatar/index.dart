@@ -9,9 +9,13 @@ class UserAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String avatar = user?.userThumbnailAvatar ?? user?.userAvatar ?? '';
+    String defaultAvatar = "assets/images/bcdh_avatar.webp";
+
     return CircleAvatar(
       radius: size,
-      backgroundImage: NetworkImage(user?.userAvatar ?? ''),
+      backgroundImage:
+          avatar.isEmpty ? AssetImage(defaultAvatar) : NetworkImage(avatar),
     );
   }
 }

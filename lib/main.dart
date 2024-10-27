@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_sliver_test/api/http.dart';
+import 'package:flutter_sliver_test/constants/theme.dart';
 import 'package:flutter_sliver_test/pages/index/index.dart';
+import 'package:flutter_sliver_test/utils/index.dart';
 
 void main() async {
   // 确保 Flutter 框架在执行其他操作之前已完全初始化。它通常用于在你访问任何 Flutter 相关功能之前调用，尤其是在使用异步操作时。
@@ -28,10 +30,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 是否为暗黑模式
+    final isDarkMode = isDark(context);
     return MaterialApp(
-      title: 'Markdown渲染',
+      title: '编程导航',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.pinkAccent),
+        colorScheme: isDarkMode
+            ? MaterialTheme.darkScheme()
+            : MaterialTheme.lightScheme(),
         useMaterial3: true,
       ),
       home: const HomePage(),
