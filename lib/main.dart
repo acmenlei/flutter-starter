@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_sliver_test/api/http.dart';
-// import 'package:flutter_sliver_test/api/http.dart';
-import 'package:flutter_sliver_test/pages/mdx/index.dart';
+import 'package:flutter_sliver_test/pages/index/index.dart';
 
 void main() async {
   // 确保 Flutter 框架在执行其他操作之前已完全初始化。它通常用于在你访问任何 Flutter 相关功能之前调用，尤其是在使用异步操作时。
@@ -24,19 +23,8 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  // This widget is the root of your application.
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +34,7 @@ class _MyAppState extends State<MyApp> {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.pinkAccent),
         useMaterial3: true,
       ),
-      // home: const MyHomePage(title: '你好'),
-      home: const CustomMarkdownWidget(),
+      home: const HomePage(),
     );
   }
 }
