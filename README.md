@@ -1,16 +1,8 @@
-# flutter_sliver_test
+# flutter_starter
 
-flutter slivers study demos...
+更适合 Web 开发人员的 Flutter 项目架构探索与实践。
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+# 技术栈
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+截止目前本项目所涉及技术栈 retrofit + dio + getx，持续完善中
